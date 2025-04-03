@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 /************************************/
 /**************** Variable **********/
 /************************************/
@@ -28,134 +29,186 @@ html {
   /* 1rem = 10px */
   font-size: 62.5%;
 }
+/* Core theme variables */
+:root {
+  --lime-green: #1db489;
+  --bright-red: #dc414c;
+  --facebook: #178ff5;
+  --twitter: #1ca0f2;
+  --instagram: linear-gradient(90deg, #fdc468 0%, #df4996 100%);
+  --youtube: #c4032a;
+  --light-toggle: #aeb3cb;
+  --light-theme-bg: #ffffff;
+  --light-bg-card: #f0f2fa;
+  --light-blue-text: #63687e;
+  --dark-blue-text: #1e202a;
+  --hover: #e1e3f0;
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark theme overrides */
 html[data-theme="dark"] {
-  --light-theme-b: #1e202a;
   --light-theme-bg: #1e202a;
   --light-bg-card: #252a41;
   --dark-blue-text: #ffffff;
-  --hover: #40486d;
-  /* --light-blue-text: #ffffff; */
+  --light-blue-text: #8c98c6;
+  --hover: #333a56;
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-/*********** For animation *********/
-html.transition,
-html.transition *,
-html.transition *:before,
-html.transition *:after {
-  transition: all 750ms !important;
-  transition-delay: 0 !important;
-}
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-/************************************/
-/************* Base style **********/
-/************************************/
-body {
-  font-family: "Inter", sans-serif;
-  margin: 3rem;
-  background: var(--light-theme-bg);
-}
-.card-section {
-  margin-bottom: 35px;
-}
-.card {
-  height: 22rem;
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: var(--light-bg-card);
-  border-radius: 6px;
-}
-.card-header {
-  grid-column: 2/4;
-  display: flex;
-  align-items: center;
-  margin: auto;
-}
-.card-header img {
-  width: 3rem;
-  margin-right: 15px;
-}
-.card-header p {
-  font-size: 1.5rem;
-  color: var(--light-blue-text);
-}
-.card-body {
-  grid-column: 2/4;
-  text-align: center;
-}
-.card-body h1 {
-  font-size: 6rem;
-  color: var(--dark-blue-text);
-  text-align: center;
-}
-.card-body p {
-  font-size: 2rem;
-  color: var(--light-blue-text);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-.card-footer {
-  grid-column: 2/4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.card-footer img {
-  width: 1.25rem;
 
-  margin-right: 5px;
+body {
+  background-color: var(--light-theme-bg);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease;
+  padding: 2rem;
 }
-.card-footer p {
-  font-size: 1.25rem;
-  color: var(--lime-green);
-  font-weight: bold;
-  text-transform: capitalize;
-}
-/************************* Header Style ****************************/
-header {
-  margin-bottom: 25px;
-}
-header .title {
-  font-size: 2.3rem;
-  font-weight: bold;
-  color: var(--dark-blue-text);
-}
-header .text {
-  font-size: 1.5rem;
-  color: var(--light-blue-text);
-  font-weight: bold;
-}
-/************************* Main Style ***************************/
-main {
-  border-top: 1px solid #a3a1a1;
-}
-.main-title {
+
+/* Dashboard header styles */
+.dashboard-header {
+  background: linear-gradient(135deg, #f8f9fe 0%, #ffffff 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--card-shadow);
   display: flex;
   justify-content: space-between;
-  height: 35px;
-  margin-top: 20px;
+  align-items: flex-start;
 }
-.main-title p {
-  font-size: 1.5rem;
-  color: var(--light-blue-text);
-  align-self: center;
-  font-weight: bold;
+
+.header-right {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  width: 300px;
 }
-/************************ Switch Button  ***************************/
+
+/* Card styles */
+.card {
+  background: var(--light-bg-card);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social-link {
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateX(5px);
+}
+
+/* Overview cards */
+.overview-card {
+  background: var(--light-bg-card);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+}
+
+.overview-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Dark mode toggle */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+label {
+  width: 60px;
+  height: 30px;
+  background: var(--light-toggle);
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: linear-gradient(90deg, #378fe6, #3eda82);
+}
+
+input:checked + label:after {
+  left: calc(100% - 26px);
+}
+
+/* Dark theme specific styles */
+html[data-theme="dark"] .dashboard-header {
+  background: linear-gradient(135deg, #20222f 0%, #1f212e 100%);
+}
+
+html[data-theme="dark"] .header-right {
+  background: rgba(37, 42, 65, 0.95);
+}
+
+/* Transitions */
+.transition * {
+  transition: all 0.3s ease;
+}
+/************************************/
+/************* Reset style **********/
+/************************************/
+html {
+  box-sizing: border-box;
+  /* 1rem = 10px */
+  font-size: 62.5%;
+}
+/* Update dark theme variables */
+html[data-theme="dark"] {
+  --light-theme-bg: #1e202a;
+  --light-bg-card: #252a41;
+  --dark-blue-text: #ffffff;
+  --light-blue-text: #8c98c6;
+  --hover: #40486d;
+}
+
+/* Update toggle switch styles */
 input[type="checkbox"] {
   width: 0;
   height: 0;
   visibility: hidden;
 }
+
 .toggle-container {
   display: flex;
 }
+
 label {
   cursor: pointer;
   width: 5.2rem;
@@ -167,8 +220,8 @@ label {
 }
 
 label:after {
-  position: absolute;
   content: "";
+  position: absolute;
   top: 3px;
   right: 3px;
   width: 20px;
@@ -177,12 +230,23 @@ label:after {
   border-radius: 90px;
   transition: 0.3s;
 }
+
 input:checked + label {
   background: linear-gradient(90deg, #378fe6 0%, #3eda82 100%);
 }
+
 input:checked + label:after {
   right: calc(100% - 45px);
   transform: translateX(-100%);
+}
+
+/* Add transition styles */
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
 }
 /********** facebook Card Style *************************/
 
@@ -400,4 +464,137 @@ input:checked + label:after {
 .a{
     
     text-align: end;
+}
+
+/* Add these new styles */
+:root {
+  /* Add new color variables */
+  --gradient-1: linear-gradient(120deg, #f6d365 0%, #fda085 0%);
+  --gradient-2: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --card-hover-transform: translateY(-5px);
+}
+
+/* Update header and My Feeds styles */
+.dashboard-header {
+  background: linear-gradient(135deg, #f6f0ff 0%, #e3e8ff 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header-right {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.social-link {
+  margin: 0.5rem 0;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.social-link.facebook {
+  background: linear-gradient(45deg, #1877f2, #45a1ff);
+}
+
+.social-link.twitter {
+  background: linear-gradient(45deg, #1da1f2, #45d1ff);
+}
+
+.social-link.youtube {
+  background: linear-gradient(45deg, #ff0000, #ff4545);
+}
+
+/* Update the dark theme variables - place this at the top with other root variables */
+:root {
+  --dark-theme-bg: #1a1b26;
+  --dark-card-bg: #252a41;
+  --dark-text: #ffffff;
+  --dark-text-secondary: #8c98c6;
+}
+
+/* Update the dark theme styles */
+html[data-theme="dark"] {
+  --light-theme-bg: var(--dark-theme-bg);
+  --light-bg-card: var(--dark-card-bg);
+  --dark-blue-text: var(--dark-text);
+  --light-blue-text: var(--dark-text-secondary);
+  background-color: var(--dark-theme-bg);
+}
+
+html[data-theme="dark"] body {
+  background-color: var(--dark-theme-bg);
+}
+
+html[data-theme="dark"] .dashboard-header {
+  background: linear-gradient(135deg, #2c3a47 0%, #1e272e 100%);
+}
+
+html[data-theme="dark"] .header-right {
+  background: rgba(37, 42, 65, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .overview-card {
+  background-color: var(--dark-card-bg);
+}
+
+html[data-theme="dark"] .main-title p {
+  color: var(--dark-text);
+}
+
+.social-link.facebook { background: var(--facebook); }
+.social-link.twitter { background: var(--twitter); }
+.social-link.youtube { background: var(--youtube); }
+
+/* Add animations */
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Add responsive design improvements */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .social-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Add notification styles */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--gradient-1);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.notification.show {
+  transform: translateY(0);
+  opacity: 1;
 }
